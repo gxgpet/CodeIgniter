@@ -106,6 +106,7 @@ jobs:
 branches:
   only:
     - develop
+    - develop2
     - 3.0-stable
     - 3.1-stable
     - /^feature\/.+$/
