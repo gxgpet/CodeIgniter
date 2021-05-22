@@ -18,6 +18,8 @@ env:
   - DB=pdo/mysql
   - DB=pdo/pgsql
   - DB=pdo/sqlite
+  global:
+	  - XDEBUG_MODE=coverage
 
 services:
   - mysql
