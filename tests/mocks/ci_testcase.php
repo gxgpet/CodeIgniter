@@ -1,6 +1,6 @@
 <?php
 
-class CI_TestCase extends \PHPUnit\Framework\TestCase {
+class CI_TestCase extends PHPUnit_Framework_TestCase {
 
 	public $ci_vfs_root;
 	public $ci_app_root;

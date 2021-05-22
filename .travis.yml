@@ -12,15 +12,12 @@ php:
   - nightly
 
 env:
-  global:
-    - XDEBUG_MODE=coverage
-  jobs:
-    - DB=mysqli
-    - DB=pgsql
-    - DB=sqlite
-    - DB=pdo/mysql
-    - DB=pdo/pgsql
-    - DB=pdo/sqlite
+  - DB=mysqli
+  - DB=pgsql
+  - DB=sqlite
+  - DB=pdo/mysql
+  - DB=pdo/pgsql
+  - DB=pdo/sqlite
 
 services:
   - mysql
@@ -37,6 +34,7 @@ before_script:
   - sh -c "if [ '$DB' = 'mysql' ] || [ '$DB' = 'mysqli' ] || [ '$DB' = 'pdo/mysql' ]; then mysql -e 'create database IF NOT EXISTS ci_test;'; fi"
 
 script: php -d zend.enable_gc=0 -d date.timezone=UTC -d mbstring.internal_encoding=UTF-8 vendor/bin/phpunit --coverage-text --configuration tests/travis/$DB.phpunit.xml
+
 jobs:
   allow_failures:
     - php: nightly
