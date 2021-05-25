@@ -93,7 +93,7 @@ class Input_test extends CI_TestCase {
 	public function test_post_get_array_notation()
 	{
 		$_SERVER['REQUEST_METHOD'] = 'POST';
-		$_POST['foo']['bar'] = 'baz';
+		$_POST['foo'] = array('bar' => 'baz');
 		$barArray = array('bar' => 'baz');
 
 		$this->assertEquals('baz', $this->input->get_post('foo[bar]'));
@@ -120,7 +120,7 @@ class Input_test extends CI_TestCase {
 	public function test_get_post_array_notation()
 	{
 		$_SERVER['REQUEST_METHOD'] = 'GET';
-		$_GET['foo']['bar'] = 'baz';
+		$_GET['foo'] = array('bar' => 'baz');
 		$barArray = array('bar' => 'baz');
 
 		$this->assertEquals('baz', $this->input->get_post('foo[bar]'));
@@ -169,7 +169,7 @@ class Input_test extends CI_TestCase {
 		$this->assertEquals("Hello, i try to [removed]alert&#40;'Hack'&#41;;[removed] your site", $harmless);
 
 		$_SERVER['REQUEST_METHOD'] = 'POST';
-		$_POST['foo']['bar'] = 'baz';
+		$_POST['foo'] = array('bar' => 'baz');
 		$barArray = array('bar' => 'baz');
 
 		$this->assertEquals('baz', $this->input->post('foo[bar]'));
