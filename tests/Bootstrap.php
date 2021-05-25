@@ -65,6 +65,13 @@ else
 
 ini_set('mbstring.func_overload', '7');
 
+if (is_php('7.0'))
+{
+	$test_case_code = file_get_contents(PROJECT_BASE.'vendor/phpunit/phpunit/src/Framework/TestCase.php');
+	$test_case_code = preg_replace('/^\s+((?:protected|public)(?: static)? function \w+\(\)): void/m', '$1', $test_case_code);
+	file_put_contents(PROJECT_BASE.'vendor/phpunit/phpunit/src/Framework/TestCase.php', $test_case_code);
+}
+
 is_php('5.6') && ini_set('php.internal_encoding', 'UTF-8');
 
 include_once SYSTEM_PATH.'core/compat/mbstring.php';
