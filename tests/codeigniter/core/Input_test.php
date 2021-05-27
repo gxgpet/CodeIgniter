@@ -100,6 +100,7 @@ class Input_test extends CI_TestCase {
 		global $debug_;
 		$debug_ = true;
 		$this->assertEquals($barArray, $this->input->get_post('foo[]'));
+		$debug_ = false;
 		$this->assertNull($this->input->get_post('foo[baz]'));
 
 		$this->assertEquals('baz', $this->input->post_get('foo[bar]'));
