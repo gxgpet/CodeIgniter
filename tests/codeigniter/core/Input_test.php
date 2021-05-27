@@ -98,9 +98,11 @@ class Input_test extends CI_TestCase {
 
 		$this->assertEquals('baz', $this->input->get_post('foo[bar]'));
 		global $debug_;
+		echo 'FROM HERE' . PHP_EOL;
 		$debug_ = true;
 		$this->assertEquals($barArray, $this->input->get_post('foo[]'));
 		$debug_ = false;
+		echo 'TO HERE' . PHP_EOL;
 		$this->assertNull($this->input->get_post('foo[baz]'));
 
 		$this->assertEquals('baz', $this->input->post_get('foo[bar]'));
