@@ -20,7 +20,6 @@ class Input_test extends CI_TestCase {
 	{
 		$_POST = [];
 		$_GET = [];
-		unset($_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_X_REQUESTED_WITH'], $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_CLIENT_IP'], $_SERVER['HTTP_USER_AGENT']);
 	}
 
 	// --------------------------------------------------------------------
