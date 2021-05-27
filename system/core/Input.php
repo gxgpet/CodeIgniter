@@ -123,9 +123,14 @@ class CI_Input {
 	 */
 	protected function _fetch_from_array(&$array, $index = NULL, $xss_clean = FALSE)
 	{
+		global $debug_;
+		if (!isset($debug_)) {
+			$debug_ = false;
+		}
+		$debug_ && var_dump(func_get_args());
 		// If $index is NULL, it means that the whole $array is requested
 		isset($index) OR $index = array_keys($array);
-
+		$debug_ && var_dump($index);
 		// allow fetching multiple keys at once
 		if (is_array($index))
 		{
@@ -140,10 +145,12 @@ class CI_Input {
 
 		if (isset($array[$index]))
 		{
+			$debug_ && var_dump($array[$index]);
 			$value = $array[$index];
 		}
 		elseif (($count = preg_match_all('/(?:^[^\[]+)|\[[^]]*\]/', $index, $matches)) > 1) // Does the index contain array notation
 		{
+			$debug_ && var_dump($count, $index, $matches);
 			$value = $array;
 			for ($i = 0; $i < $count; $i++)
 			{
@@ -165,8 +172,10 @@ class CI_Input {
 		}
 		else
 		{
+			$debug_ && var_dump('NULL');
 			return NULL;
 		}
+		$debug_ && var_dump($value);
 
 		return ($xss_clean === TRUE)
 			? $this->security->xss_clean($value)
