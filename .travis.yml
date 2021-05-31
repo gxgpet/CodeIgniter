@@ -12,15 +12,15 @@ php:
   - nightly
 
 env:
-	global:
-		- XDEBUG_MODE=coverage
-	jobs:
-		- DB=mysqli
-		- DB=pgsql
-		- DB=sqlite
-		- DB=pdo/mysql
-		- DB=pdo/pgsql
-		- DB=pdo/sqlite
+  global:
+    - XDEBUG_MODE=coverage
+  jobs:
+    - DB=mysqli
+    - DB=pgsql
+    - DB=sqlite
+    - DB=pdo/mysql
+    - DB=pdo/pgsql
+    - DB=pdo/sqlite
 
 services:
   - mysql
