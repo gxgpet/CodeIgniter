@@ -66,10 +66,10 @@ class Text_helper_test extends CI_TestCase {
 	{
 		$path = 'application/config/foreign_chars.php';
 		$this->ci_vfs_clone($path);
-		if (is_php('7.4'))
-		{
-			copy(PROJECT_BASE.$path, APPPATH.'../'.$path);
-		}
+//		if (is_php('7.4'))
+//		{//var_dump(PROJECT_BASE.$path, APPPATH.'../'.$path);
+//			copy(PROJECT_BASE.$path, APPPATH.'../'.$path);
+//		}
 		$this->assertEquals('AAAeEEEIIOOEUUUeY', convert_accented_characters('ÀÂÄÈÊËÎÏÔŒÙÛÜŸ'));
 		$this->assertEquals('a e i o u n ue', convert_accented_characters('á é í ó ú ñ ü'));
 	}
