@@ -9,6 +9,7 @@ php:
   - 7.2
   - 7.3
   - 7.4
+  - 8.0
   - nightly
 
 env:
@@ -107,6 +108,7 @@ jobs:
 branches:
   only:
     - develop
+    - develop_php8_test
     - 3.0-stable
     - 3.1-stable
     - /^feature\/.+$/
