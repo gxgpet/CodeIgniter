@@ -25,6 +25,7 @@ if ( ! class_exists('vfsStream') && file_exists(PROJECT_BASE.'vendor/autoload.ph
 	class_alias('org\bovigo\vfs\vfsStream', 'vfsStream');
 	class_alias('org\bovigo\vfs\vfsStreamDirectory', 'vfsStreamDirectory');
 	class_alias('org\bovigo\vfs\vfsStreamWrapper', 'vfsStreamWrapper');
+	class_alias('\GuzzleHttp\Client', 'HttpClient');
 }
 
 // Define CI path constants to VFS (filesystem setup in CI_TestCase::setUp)
