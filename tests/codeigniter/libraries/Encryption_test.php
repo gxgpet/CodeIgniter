@@ -5,6 +5,11 @@ class Encryption_test extends CI_TestCase {
 	public function set_up()
 	{
 		$this->encryption = new Mock_Libraries_Encryption();
+
+		if (version_compare(PHP_VERSION, '7.1', '<'))
+		{
+			$this->markTestSkipped('Ubuntu-latest OpenSSL is not working correct in some older PHP versions.');
+		}
 	}
 
 	// --------------------------------------------------------------------
@@ -27,11 +32,6 @@ class Encryption_test extends CI_TestCase {
 		$this->ci_set_config('encryption_key', str_repeat("\x0", 16));
 		$this->encrypt = new Mock_Libraries_Encryption();
 		$this->assertEquals(str_repeat("\x0", 16), $this->encrypt->get_key());
-
-		if (version_compare(PHP_VERSION, '7.1', '<'))
-		{
-			return $this->markTestSkipped('Ubuntu-latest OpenSSL is not working correct in some older PHP versions.');
-		}
 	}
 
 	// --------------------------------------------------------------------
