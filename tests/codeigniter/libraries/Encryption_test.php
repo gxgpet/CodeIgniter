@@ -208,7 +208,7 @@ class Encryption_test extends CI_TestCase {
 		$this->assertEquals($message, $this->encryption->decrypt($this->encryption->encrypt($message)));
 
 		// Try DES in ECB mode, just for the sake of changing stuff
-		$this->encryption->initialize(array('cipher' => 'tripledes', 'mode' => 'ecb', 'key' => substr($key, 0, 8)));
+		$this->encryption->initialize(array('cipher' => 'des', 'mode' => 'ofb', 'key' => substr($key, 0, 8)));
 		$this->assertEquals($message, $this->encryption->decrypt($this->encryption->encrypt($message)), 'available ciphers:' . var_export(openssl_get_cipher_methods(), true));
 	}
 
